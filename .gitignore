@@ -1,3 +1,4 @@
 starterbot/
 .DS_Store
-
+*.pyc
+database_config.py
