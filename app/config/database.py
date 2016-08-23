@@ -1,12 +1,12 @@
 """
     Database Specific Configuration File
 """
-""" Put Generic Database Configurations here """
 import os
+import database_config
 
 class DBConfig(object):
     """ DB_ON must be True to use the DB! """
-    DB_ON = False
+    DB_ON = True
     DB_DRIVER = 'mysql'
     DB_ORM = False
 
@@ -17,10 +17,9 @@ class DevelopmentDBConfig(DBConfig):
     DB_DATABASE_NAME = 'mydb'
     DB_HOST = 'localhost'
     DB_PORT = 3306
-    # """ unix_socket is used for connecting with MAMP. Take this out if you aren't using MAMP """
-    # DB_OPTIONS = {
-    #     'unix_socket': '/Applications/MAMP/tmp/mysql/mysql.sock'
-    # }
+    DB_OPTIONS = {
+        'unix_socket': '/Applications/MAMP/tmp/mysql/mysql.sock'
+    }
 
 """ Put Staging Specific Configurations here """
 class StagingDBConfig(DBConfig):

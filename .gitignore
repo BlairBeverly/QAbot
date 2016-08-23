@@ -3,3 +3,5 @@
 *.pyc
 venv/*
 __pycache__/*
+Deployment.md
+
