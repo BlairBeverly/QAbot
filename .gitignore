@@ -1,4 +1,12 @@
 starterbot/
 .DS_Store
+*.swp
 *.pyc
 database_config.py
+__pycache__/*
+Deployment.md
+venv/*
+system/*
+setup
+manage.py
+app/config/*
