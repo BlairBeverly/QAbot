@@ -1,1 +1,0 @@
-source pylotVenv/bin/activate
