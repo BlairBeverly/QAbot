@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../../static/css/styles.css" type="text/css">
+    <title>Login to Quizbot</title>
+</head>
+<body>
+    <h2>Login to QuizBot Admin</h2>
+    <form action="questions/login" method="post">
+        <div id="formelements">
+          <label>Username:</label><input type="text" name="username"><br>
+          <label>Password:</label><input type="password" name="password"><br>
+        </div>
+        <br>
+        <input id="submit" type="submit" name="Login">
+    </form>
+    <br>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+</body>
+</html>

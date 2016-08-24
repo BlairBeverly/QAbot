@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../../static/css/styles.css" type="text/css">
+    <title>Add a question</title>
+</head>
+<body>
+    <h2>Add a question</h2>
+    <form action="/questions/add" method="post">
+        <div id="formelements">
+          <label>Question:</label><input type="text" name="question"><br>
+          <label>Answer:</label><input type = "text" name="answer"><br>
+          <label>Category:</label><input type="text" name="category"><br>
+          <label>Point Value:</label><input type="text" name="point_value"><br>
+        </div>
+        <br>
+        <input id="submit" type="submit" name="Submit">
+    </form>
+    <br>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <br><br><br>
+    <a href="/">Go Back</a>
+</body>
+</html>

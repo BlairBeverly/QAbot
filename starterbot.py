@@ -17,7 +17,7 @@ ANSWER_COMMAND = "answer"
 SCOREBOARD_COMMAND = "scoreboard"
 NUM_QUESTIONS = 3
 RESET_COMMAND = "reset"
-SPLIT_REGEX_PATTERN = r"[:\s]"
+SPLIT_REGEX_PATTERN = r":?\s*"
 NEXT_COMMAND = "next"
 
 class QuizBot(object):
@@ -76,8 +76,8 @@ class QuizBot(object):
             if question['category'].lower() == category and question['point_value'] \
             == point_value:
                 print "match"
-                self.current_question = "{} for {}: ".format(
-                    category, point_value, question['question'])
+                self.current_question = "For {} points: {}".format(
+                    point_value, question['question'])
                 self.current_answer = question['answer']
                 self.current_point_value = question['point_value']
                 del self.available_questions[index]
@@ -121,7 +121,7 @@ class QuizBot(object):
                 else:
                     try:
                         category, point_value = re.split(
-                            SPLIT_REGEX_PATTERN, command[len(ASK_COMMAND):].strip(), maxsplit=1)
+                            SPLIT_REGEX_PATTERN, command[len(ASK_COMMAND):].strip())
 
                         response_status = self.set_question_answer(
                             category.strip(), int(point_value.strip()))
@@ -137,7 +137,7 @@ class QuizBot(object):
                         "'I'll take Python 100'".format(name)
 
         elif command.lower().startswith(NEXT_COMMAND.lower()):
-
+            pass
 
 
         elif command.lower().startswith(ANSWER_COMMAND.lower()):

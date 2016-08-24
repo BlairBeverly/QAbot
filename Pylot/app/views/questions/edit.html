@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../../static/css/styles.css" type="text/css">
+    <title>Edit a question</title>
+</head>
+<body>
+    <h2>Edit a question</h2>
+    <form action="/questions/edit/{{ question['id'] }}" method="post">
+        <div id="formelements">
+          <label>Question:</label>
+          <textarea 
+            cols="60" 
+            name="question">{{ question['question'] }}
+          </textarea><br>
+          <label>Answer:</label>
+          <input 
+            type="text"  
+            value="{{ question['answer'] }}" 
+            name="answer"><br>
+          <label>Category:</label>
+          <input 
+            type="text"  
+            value="{{ question['category'] }}" 
+            name="category"><br>
+          <label>Point Value:</label>
+          <input 
+            type="text"  
+            value="{{ question['point_value'] }}" 
+            name="point_value"><br>
+        </div>
+        <br>
+        <input id="submit" type="submit" name="Submit">
+    </form>
+    <br>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <br><br><br>
+    <a href="/">Go Back</a>
+
+
+</body>
+</html>
