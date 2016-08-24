@@ -1,4 +1,4 @@
-starterbot/
+quizbot/
 .DS_Store
 *.swp
 *.pyc
@@ -10,3 +10,4 @@ system/*
 setup
 manage.py
 app/config/*
+*/database.py
