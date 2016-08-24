@@ -13,3 +13,4 @@ setup
 manage.py
 app/config/*
 */database.py
+slackapitoken.py

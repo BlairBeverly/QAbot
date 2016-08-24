@@ -4,12 +4,14 @@ import random
 from mysqlconnection import MySQLConnector
 from slackclient import SlackClient
 import re
+import slackapitoken
 
 mysql = MySQLConnector()
 
 # constants
-BOT_ID = os.environ.get("BOT_ID") # starterbot's ID as an environment variable
-BOT_NAME = "starterbot"
+BOT_ID = slackapitoken.BOT_ID
+BOT_NAME = slackapitoken.BOT_NAME
+BOT_TOKEN = slackapitoken.BOT_TOKEN
 AT_BOT = "<@" + BOT_ID + ">"
 QUESTIONS_COMMAND = "questions" 
 ASK_COMMAND = "I'll take"
@@ -36,7 +38,7 @@ class QuizBot(object):
         print self.available_questions
 
         # instantiate Slack client
-        self.slack_client = SlackClient(os.environ.get('SLACK_BOT_TOKEN'))
+        self.slack_client = SlackClient(BOT_TOKEN)
 
     def get_all_questions(self):
         all_questions = mysql.query_db("SELECT question, answer, category, "\
@@ -128,7 +130,8 @@ class QuizBot(object):
                         
                         if response_status == 'ok':
                             response = self.current_question + "\n (Type "\
-                            "'@starterbot answer:<your answer>' to answer the question)"
+                            "'@{} answer:<your answer>' to answer the question)".format(
+                                BOT_NAME)
                         else:
                             response = self.get_questions_response(name)
                     
@@ -215,7 +218,7 @@ if __name__ == "__main__":
     bot = QuizBot()
 
     if bot.slack_client.rtm_connect():
-        print("StarterBot connected and running!")
+        print("QuizBot connected and running!")
         while True:
             command, channel, user = bot.parse_slack_output(bot.slack_client.rtm_read())
             if command and channel and user:

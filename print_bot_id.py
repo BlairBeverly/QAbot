@@ -1,9 +1,10 @@
 import os
+import slackapitoken
 from slackclient import SlackClient
 
-BOT_NAME = 'starterbot'
+BOT_NAME = 'quizbot'
 
-slack_client = SlackClient(os.environ.get('SLACK_BOT_TOKEN'))
+slack_client = SlackClient(slackapitoken.QUIZBOT_TOKEN)
 
 
 if __name__=="__main__":
