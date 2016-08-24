@@ -3,6 +3,8 @@ quizbot/
 *.swp
 *.pyc
 database_config.py
+venv/*
+pylotVenv/*
 __pycache__/*
 Deployment.md
 venv/*
