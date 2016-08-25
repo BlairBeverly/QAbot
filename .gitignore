@@ -3,7 +3,6 @@ quizbot/
 *.swp
 *.pyc
 database_config.py
-venv/*
 pylotVenv/*
 __pycache__/*
 Deployment.md
@@ -14,3 +13,7 @@ manage.py
 app/config/*
 */database.py
 slackapitoken.py
+Pylot/errlog
+Pylot/quizbot.ini
+bot/*
+Pylot/app/config/database.py

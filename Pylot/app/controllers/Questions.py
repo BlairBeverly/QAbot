@@ -7,7 +7,7 @@
     Create a controller using this template
 """
 from system.core.controller import *
-
+import credentials
 
 class Questions(Controller):
     def __init__(self, action):
@@ -36,7 +36,8 @@ class Questions(Controller):
         username = request.form['username']
         password = request.form['password']
 
-        if username != '' and password != '':
+        if username == credentials.CREDENTIALS['username'] and \
+        password == credentials.CREDENTIALS['password']:
             session['user'] = username
 
         else:

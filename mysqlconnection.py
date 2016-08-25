@@ -18,10 +18,14 @@ class MySQLConnection(object):
         Session = sessionmaker(bind=engine)
         self.session = Session()
 
+        print self.session
 
     def query_db(self, query, data=None):
+        print query
+        print data
         result = self.session.execute(text(query), data)
         if query[0:6].lower() == 'select':
+            print 'query was SELECT'
             # if the query was a select
             # convert the result to a list of dictionaries
             list_result = [dict(r) for r in result]

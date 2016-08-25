@@ -17,7 +17,7 @@ QUESTIONS_COMMAND = "questions"
 ASK_COMMAND = "I'll take"
 ANSWER_COMMAND = "answer"
 SCOREBOARD_COMMAND = "scoreboard"
-NUM_QUESTIONS = 3
+NUM_QUESTIONS = 4
 RESET_COMMAND = "reset"
 SPLIT_REGEX_PATTERN = r":?\s*"
 NEXT_COMMAND = "next"
@@ -226,8 +226,3 @@ if __name__ == "__main__":
             time.sleep(READ_WEBSOCKET_DELAY)
     else:
         print("Connection failed. Invalid Slack token or bot ID?")
-
-
-
-
-

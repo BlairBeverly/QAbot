@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.12, for osx10.9 (x86_64)
 --
--- Host: 127.0.0.1    Database: mydb
+-- Host: 127.0.0.1    Database: quizbot
 -- ------------------------------------------------------
 -- Server version	5.5.42
 
